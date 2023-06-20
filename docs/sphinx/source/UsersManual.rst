@@ -1,59 +1,7 @@
-*********
-todo_five
-*********
-
-This repository contains a todo list implimented with a Graphical User Interface (GUI).  The
-code based was programmed in the Python programming language using the PyQt5 library, hend
-the five in todo_five.  **NOTE:** This repository is no longer maintained and has
-been replaced by todo_six
-
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-
-.. image:: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
-    :target: https://pycqa.github.io/isort/
-
-.. image:: https://readthedocs.org/projects/flake8/badge/?version=latest
-    :target: https://flake8.pycqa.org/en/latest/?badge=latest
-    :alt: Documentation Status
-
-.. image:: http://www.mypy-lang.org/static/mypy_badge.svg
-   :target: http://mypy-lang.org/
-
-
-Contributing
-############
-Pull requests are welcome.  For major changes, please open an issue first to discuss
-what you would like to change.  Please make sure to include and update tests
-as well as relevant doc-string and sphinx updates.
-
-License
-#######
-This softwate package is written under an MIT License
-
-Requirements
-############
-Code requirements are described in the poetry.lock and pyproject.toml files
-
-Installation
-############
-In order to download this repository from github, follow these instructions
-
-#. Install poetry globally on your computer. Follow the instructions from `Poetry <https://python-poetry.org/docs/>`_
-#. Set the poetry virtual environment with the following command ``poetry config virtualenvs.in-project true``
-#. Ensure you have .git installed on your computer.
-#. At your desired location create a directory titled ``todo_five``
-#. Open a terminal (Bash, zsh or DOS) and cd to the ``todo_six`` directory
-#. Type ``git clone https://github.com/Jon-Webb-79/todo_five.git todo_five``
-#. Install packages with ``poetry install``
-
-To install the package as an executable complete the developer installation process,
-and complete the following steps.
-
-User Instructions
-#################
-todo_six is a Todo list application within in the Python3 language using the PyQt5 library, hence
-the name todo_six.  This application allows a user to manager multiple todo lists ina  single application,
+Todo List Users Manual
+======================
+todo_five is a Todo list application within in the Python3 language using the PyQt5 library, hence
+the name todo_five.  This application allows a user to manager multiple todo lists ina  single application,
 and also allows the user to view not only view their recently completed tasks, but any tasks completed
 within specific time frames.  Furthremore, the user can also review their todo tasks and completed
 tasks on any date they wish.  Most important, unlike other applications that store data on the cloud,
@@ -61,12 +9,12 @@ this application stores all data locally in SQLite databases, which protects the
 
 Login Screen
 ************
-When a user opens the todo_five application, it loads a landing page that has basic functionality.
-As you can see from the Figure below, the login screen contains a radio button that allows the use
+When a user opens the todo_six application, it loads a landing page that has basic functionality.
+As you can see from Figure XX, the login screen contains a radio button that allows the user
 to choose a day theme or a night theme.  In addition, the user can control the opacity of
 the application with a slider.
 
-.. image:: docs/sphinx/source/images/login_screen.png
+.. image:: images/login_screen.png
    :align: center
 
 Create and Open a List
@@ -80,7 +28,7 @@ window that prompts the user to navigate the the directory where they want
 to createa a todo database.  The user can then enter the name of the database,
 click Save, and the empty todo list will be saved to the user defined directory.
 
-.. image:: docs/sphinx/source/images/create_file.png
+.. image:: images/create_file.png
    :align: center
 
 Once the database has been created, the screen will be populated with a tab containing
@@ -91,7 +39,7 @@ THe user can also open an existing database via ``File > Open``.  The applicatio
 allow a user to create and open multiple tabs at any one time.  Each tab will be
 associated with a new database.
 
-.. image:: docs/sphinx/source/images/basic_application.png
+.. image:: images/basic_application.png
    :align: center
 
 Close the Application
