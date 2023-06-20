@@ -332,7 +332,7 @@ class Tab(QWidget):
             "add_task_button": QPushButton("Add Task"),
             "retire_task_button": QPushButton("Retire Task"),
             "delete_task_button": QPushButton("Delete Task"),
-            "drop_down_menu": QComboBox(),
+            "drop_down_menu": DropDownMenu(["Day", "Week", "Month", "Year", "All"]),
             "calendar": QDateEdit(),
         }
 
