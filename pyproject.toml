@@ -103,7 +103,13 @@ no_implicit_optional = true
 testpaths = ["tests"]
 console_output_style = "progress"
 markers = [
+	"daynightradiobutton: marks tests for the DayNightRadioButton class",
+	"dropdownmenu: marks tests for the DropDownMenu class",
 	"sqlitemanager: marks for tests of the SQliteManager class",
+	"lineedit: marks for tests of the LineEdit class",
+	"listwidget: marks for tests of the ListWidget class",
+	"opacityslider: marks for tests of the OpacitySlider class",
+	"pushbutton: marks for tests of the PushButton class",
 	"tododatabase: marks for tests of the ToDoDatabase class"
 ]
 
