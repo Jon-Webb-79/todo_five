@@ -8,6 +8,8 @@ packages = [{include = "todo_five"}]
 
 [tool.poetry.dependencies]
 python = ">3.11,<3.12"
+pyqt5 = "^5.15.9"
+pandas = "^2.0.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -100,6 +102,10 @@ no_implicit_optional = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 console_output_style = "progress"
+markers = [
+	"sqlitemanager: marks for tests of the SQliteManager class",
+	"tododatabase: marks for tests of the ToDoDatabase class"
+]
 
 [project.urls]
 "Homepage" = "https://github.com/Jon-Webb-79/todo_five"
