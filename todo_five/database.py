@@ -1,6 +1,7 @@
 import sys
 import uuid
 from datetime import datetime, timedelta
+from typing import Dict, List, Tuple
 
 import pandas as pd
 from PyQt5.QtSql import QSqlDatabase, QSqlQuery
@@ -71,7 +72,7 @@ class SQLiteManager(QSqlDatabase):
 
     # ------------------------------------------------------------------------------------------
 
-    def open_db(self) -> tuple[bool, str]:
+    def open_db(self) -> Tuple[bool, str]:
         """
         Method to open an existing database.
 
@@ -105,7 +106,7 @@ class SQLiteManager(QSqlDatabase):
 
     # ------------------------------------------------------------------------------------------
 
-    def close_db(self) -> tuple[bool, str]:
+    def close_db(self) -> Tuple[bool, str]:
         """
         Method to close a database connection
 
@@ -141,7 +142,7 @@ class SQLiteManager(QSqlDatabase):
 
     # ------------------------------------------------------------------------------------------
 
-    def db_query(self, query: str, params: tuple = None) -> tuple[bool, QSqlQuery, str]:
+    def db_query(self, query: str, params: Tuple = None) -> Tuple[bool, QSqlQuery, str]:
         """
         Method to query a database
 
@@ -215,7 +216,7 @@ class SQLiteManager(QSqlDatabase):
 
     # ------------------------------------------------------------------------------------------
 
-    def table_schema(self, table_name: str) -> tuple[bool, dict[str, str], str]:
+    def table_schema(self, table_name: str) -> Tuple[bool, Dict[str, str], str]:
         """
         Method to return the column names and data types for a table
 
@@ -263,7 +264,7 @@ class SQLiteManager(QSqlDatabase):
 
     # ------------------------------------------------------------------------------------------
 
-    def db_schema(self) -> tuple[bool, dict[str, dict[str, str]], str]:
+    def db_schema(self) -> Tuple[bool, dict[str, Dict[str, str]], str]:
         """
         Method to return the column names and data types for all tables in the database.
 
@@ -318,8 +319,8 @@ class SQLiteManager(QSqlDatabase):
     # ------------------------------------------------------------------------------------------
 
     def create_table(
-        self, table_name: str, column_names: list[str], data_types: list[str]
-    ) -> tuple[bool, str]:
+        self, table_name: str, column_names: List[str], data_types: List[str]
+    ) -> Tuple[bool, str]:
         """
          Method to create a table in the database.
 
@@ -377,7 +378,7 @@ class SQLiteManager(QSqlDatabase):
 
     # ------------------------------------------------------------------------------------------
 
-    def table_exists(self, table_name: str) -> tuple[bool, str]:
+    def table_exists(self, table_name: str) -> Tuple[bool, str]:
         """
         Method to check if a table exists in the database
 
@@ -427,7 +428,7 @@ class ToDoDatabase(SQLiteManager):
 
     # ------------------------------------------------------------------------------------------
 
-    def create_tasks_table(self) -> tuple[bool, str]:
+    def create_tasks_table(self) -> Tuple[bool, str]:
         """
         Method to create a task table if it does not already exist
 
@@ -449,7 +450,7 @@ class ToDoDatabase(SQLiteManager):
 
     # ------------------------------------------------------------------------------------------
 
-    def insert_task(self, task) -> tuple[bool, str, int]:
+    def insert_task(self, task) -> Tuple[bool, str, int]:
         """
         Method to insert a task to the tasks table of a database
 
@@ -463,7 +464,7 @@ class ToDoDatabase(SQLiteManager):
         query.prepare("INSERT INTO tasks (task, start_date) VALUES (?, ?);")
         query.addBindValue(task)
         query.addBindValue(start_date)
-        success = query.exec()
+        success = query.exec_()
         if success:
             task_id = query.lastInsertId()
             return True, f"Task '{task}' successfully added to tasks.", task_id
@@ -472,7 +473,7 @@ class ToDoDatabase(SQLiteManager):
 
     # ------------------------------------------------------------------------------------------
 
-    def complete_task(self, task_id: int) -> tuple[bool, str]:
+    def complete_task(self, task_id: int) -> Tuple[bool, str]:
         """
         Method to complete task by entering its end date
 
@@ -492,7 +493,7 @@ class ToDoDatabase(SQLiteManager):
 
     # ------------------------------------------------------------------------------------------
 
-    def delete_task(self, task_id: int) -> tuple[bool, str]:
+    def delete_task(self, task_id: int) -> Tuple[bool, str]:
         """
         Method to delete a task from the tasks table of a database.
 
@@ -511,7 +512,7 @@ class ToDoDatabase(SQLiteManager):
 
     # ------------------------------------------------------------------------------------------
 
-    def select_open_tasks(self) -> tuple[bool, pd.DataFrame, str]:
+    def select_open_tasks(self) -> Tuple[bool, pd.DataFrame, str]:
         """
         Method to select all tasks that are still open.
 
@@ -536,7 +537,7 @@ class ToDoDatabase(SQLiteManager):
 
     def select_closed_tasks(
         self, time_frame: str, date=datetime.now().strftime("%Y-%m-%d")
-    ) -> tuple[bool, pd.DataFrame, str]:
+    ) -> Tuple[bool, pd.DataFrame, str]:
         """
         Method to select all tasks that have been closed within a certain time frame
         of a given date
@@ -591,7 +592,7 @@ class ToDoDatabase(SQLiteManager):
 
     # ------------------------------------------------------------------------------------------
 
-    def get_oldest_date(self) -> tuple[bool, str, str]:
+    def get_oldest_date(self) -> Tuple[bool, str, str]:
         """
         Method to get the oldest start_date from the tasks table.
 
@@ -613,7 +614,7 @@ class ToDoDatabase(SQLiteManager):
 
     # ------------------------------------------------------------------------------------------
 
-    def get_former_open_tasks(self, date) -> tuple[bool, pd.DataFrame, str]:
+    def get_former_open_tasks(self, date) -> Tuple[bool, pd.DataFrame, str]:
         """
         Method to select all tasks that were open on a certain date
 

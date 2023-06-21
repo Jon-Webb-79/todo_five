@@ -1,4 +1,6 @@
 # Import necessary packages here
+from typing import List
+
 from PyQt5.QtCore import QDate, Qt
 from PyQt5.QtGui import QFont, QKeySequence
 from PyQt5.QtWidgets import (
@@ -77,7 +79,7 @@ class DropDownMenu(QComboBox):
                           if set to false
     """
 
-    def __init__(self, options: list[str], active_widget: bool = True):
+    def __init__(self, options: List[str], active_widget: bool = True):
         super().__init__()
         self.addItems(options)
         self.setCurrentIndex(0)  # Set default selection to the first item
